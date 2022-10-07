@@ -1,7 +1,7 @@
 public class Makes10{
   public static void main(String[] args){
-    testmakes10(20, 10, false);
-    testmakes10(9, 8, true);
+    testmakes10(20, 10, true);
+    testmakes10(9, 8, false);
     testmakes10(10, 12, true);
     }
   public static boolean makes10(int a, int b) {

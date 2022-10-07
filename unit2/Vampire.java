@@ -1,13 +1,27 @@
 public class Vampire{
   public static void main(String[] args){
-      System.out.println(vampire(8,true));
+      testvampire(6, false, true);
+      testvampire(7, true, true);
+      testvampire(23, false, false);
   }
   public static boolean vampire(float hour, boolean awake){
-    if (6<= hour && hour>= 22){
+    if (6< hour && hour> 22){
       return awake == true;
     }
     else{
-      return awake == false;
+      return awake == awake;
     }
+  }
+  public static void testvampire(float hour, boolean awake, boolean exp){
+    boolean ans = vampire(hour, awake);
+
+    System.out.println("hour: " + hour + " awake: " + awake + " exp: " + exp + " ans: " + ans);
+
+    if (ans==exp)
+      System.out.println(" correct ");
+    else
+      System.out.println(" wrong ");
+
+
   }
 }

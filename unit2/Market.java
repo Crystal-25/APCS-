@@ -1,12 +1,22 @@
 public class Market{
-  public static boolean goodDeal(double orginialPrice, double salePrice){
-    if (0.75*orginialPrice == salePrice){
+  public static boolean goodDeal(double orginalPrice, double salePrice){
+    if (0.75*orginalPrice <= salePrice){
       }
       return true;
   }
+  public static void testgoodDeal(double orginalPrice, double salePrice, boolean ans, boolean exp){
+    ans = goodDeal(orginalPrice, salePrice);
+
+    System.out.println("orginalPrice: " + orginalPrice + " salePrice: " + salePrice + " ans: " + ans + " exp: " + exp);
+
+    if(ans == exp)
+      System.out.println(" correct ");
+    else
+      System.out.println(" wrong ");
+  }
   public static void main(String[] args){
-    System.out.println(goodDeal(100, 100));
-    System.out.println(goodDeal(80, 300));
-    System.out.println(goodDeal(50, 100));
+    testgoodDeal(100, 50, true, true);
+    testgoodDeal(300, 80, true, true);
+    testgoodDeal(200, 300, false, false);
   }
 }
