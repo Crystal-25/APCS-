@@ -1,8 +1,9 @@
 public class Market{
   public static boolean goodDeal(double orginalPrice, double salePrice){
-    if (0.75*orginalPrice <= salePrice){
+    if (0.75*orginalPrice < salePrice){
       }
       return true;
+
   }
   public static void testgoodDeal(double orginalPrice, double salePrice, boolean ans, boolean exp){
     ans = goodDeal(orginalPrice, salePrice);
@@ -17,6 +18,6 @@ public class Market{
   public static void main(String[] args){
     testgoodDeal(100, 50, true, true);
     testgoodDeal(300, 80, true, true);
-    testgoodDeal(200, 300, false, false);
+    testgoodDeal(300, 200, true, true);
   }
 }
