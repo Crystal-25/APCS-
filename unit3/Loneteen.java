@@ -7,10 +7,17 @@ class LoneTeen{
   public static void testloneteen(int a, int b, boolean exp){
     boolean ans = loneteen(a, b);
     System.out.println("input: " + a + ", " + b + " exp: " + exp + " ans: " + ans);
+
+    if (ans == exp)
+      System.out.println(" correct ");
+    else
+      System.out.println(" wrong "); 
   }
   public static void main(String[] args){
     testloneteen(13, 90, true);
     testloneteen(21, 19, true);
     testloneteen(13, 13, false);
+
+
   }
 }

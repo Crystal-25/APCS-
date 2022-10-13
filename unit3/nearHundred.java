@@ -14,5 +14,10 @@ public class nearHundred{
     boolean ans = nearhundred(n);
       System.out.println("input: " + n + " exp: " + exp + " ans: " + ans);
 
+      if (ans == exp)
+        System.out.println( "correct ");
+      else
+        System.out.println(" wrong ");
+
   }
 }
