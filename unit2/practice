@@ -1,0 +1,6 @@
+public class IsVampirepractice{
+  public boolean isVampire(float hour, boolean awake){
+    if(hour<6 || hour>22)
+      return awake == true;
+  }
+}
