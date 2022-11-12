@@ -11,15 +11,15 @@ public class StringTimes{
 
     System.out.println("input: " + str + " , " + n + " exp: " + exp + " ans: " + ans);
 
-    if ans = ex
-      return "correct";
+    if (ans == exp)
+      System.out.println ("correct");
     else
-      return "wrong"
+      System.out.println ("wrong");
   }
   public static void main(String[] args){
     teststringTimes("Hi", 3, "HiHiHi");
     teststringTimes("Hi", 1, "Hi");
-    teststringTimes("Hi", 2, "HiHi"); 
+    teststringTimes("Hi", 2, "HiHi");
 
   }
 }

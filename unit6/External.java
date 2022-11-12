@@ -1,5 +1,5 @@
 
-import processing.core.*;
+/* import processing.core.*;
 
 public class HelloProcessing extends PApplet
 {
@@ -23,3 +23,4 @@ public class HelloProcessing extends PApplet
         PApplet.main("HelloProcessing");
     }
 }
+*/
