@@ -18,15 +18,15 @@ public class Main{
     MagicEightBall m1 = new MagicEightBall();
 
     System.out.println(m1.ask("Will it rain tomorrow?"));
-    }
+
 //rectangle
       Rectangle r1 = new Rectangle(5, 10);
 
-      System.out.println(r1.getBase();
-      System.out.println(r1.getHeight();
+      System.out.println(r1.getBase());
+      System.out.println(r1.getHeight());
       System.out.println(r1.getArea());
       System.out.println(r1.getPerimeter());
       System.out.println(r1.getLength());
 
-
+    }
   }
