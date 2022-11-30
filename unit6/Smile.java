@@ -1,17 +1,25 @@
 import processing.core.*;
 
 public class Smile {
-  int x;
-  int y;
-  int s;
 
-Smile(PApplet p, int x, int y, int s){
+  private PApplet p;
+  private int x, y, s;
+
+Smile(PApplet p){
   this.p = p;
-  x = int(p.random(p.width));
-  y = int(p.random(p.length));
-  s = int(p.random(p.size));
+  x = (int)p.random(p.width);
+  y = (int)p.random(p.height);
+  s = (int)p.random(p.height);
 
   }
+
+void update(){
+  x = x+10;
+  if(x>400+s/2){
+  x = 0-s/2;
+  }
+}
+
 void display(){
     //head
     p.strokeWeight(3);
@@ -31,8 +39,9 @@ void display(){
     p.strokeWeight(3);
     p.noFill();
     p.stroke(0);
-    p.arc(x, y+s/12, s/2, s/2, 0, PI);
+    p.arc(x, y+s/12, s/2, s/2, 0, p.PI);
     p.line(x-s/4, y+s/12, x+s/4, y+s/12);
 
   }
+
 }
