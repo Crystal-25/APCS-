@@ -14,23 +14,44 @@ public class Filtering{
     }
     return score90;
   }
+
+public static void testfilterGoodScores(ArrayList<Integer> list, ArrayList<Integer>expected){
+  ArrayList<Integer> answer = filterGoodScores(list);
+
+  System.out.print("Array list: " + list);
+
+  System.out.println("expected: " + expected + "actual value: " + answer);
+
+  if(expected.equals (answer))
+    System.out.println("correct");
+  else
+    System.out.println("wrong");
+}
+
 public static void main(String[] args){
     ArrayList<Integer> arr1 = new ArrayList<Integer>();
+
+    ArrayList<Integer> exp1 = new ArrayList<Integer> ();
+    exp1.add (100);
 
     arr1.add(51);
     arr1.add(52);
     arr1.add(53);
     arr1.add(100);
 
-    System.out.println(filterGoodScores(arr1));
+    testfilterGoodScores(arr1, exp1);
 
     ArrayList<Integer> arr2 = new ArrayList<Integer>();
+
+    ArrayList<Integer> exp2 = new ArrayList<Integer>();
+    exp2.add(92);
+    exp2.add(99); 
 
     arr2.add(92);
     arr2.add(89);
     arr2.add(90);
     arr2.add(99);
 
-    System.out.println(filterGoodScores(arr2));
+    testfilterGoodScores(arr2, exp2);
   }
 }

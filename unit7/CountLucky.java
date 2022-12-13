@@ -13,21 +13,32 @@ public class CountLucky{
     return count;
 
   }
+
+  public static void testcountLucky(int[] nums, int expected){
+
+    int result = countLucky(nums);
+    System.out.print("Input: " + nums[0]);
+    for(int i = 1; i < nums.length; i++)
+      System.out.print(", " + nums[i]);
+
+     System.out.println(" Expected: " + expected + " result " + result);
+
+    if(result == expected){
+      System.out.println("yes");
+    }
+    else{
+      System.out.println("no");
+    }
+  }
   public static void main(String[] args){
 
-    int[] arr = {107, 207};
+    int [] ar1 = {107, 207};
+    testcountLucky(ar1, 2);
 
-    System.out.println(countLucky(arr));
+    int [] ar2 = {1, 2, 3};
+    testcountLucky(ar2, 0);
 
-    int[] arr2 = {1, 2, 3};
-    System.out.println(countLucky(arr2));
-
-    int[] arr3 = {7, 13, 17};
-    System.out.println(countLucky(arr3));
-
-    /* System.out.println(countLucky({1, 2, 3}));
-    System.out.println(countLucky({7, 13, 17}));
-    System.out.println(countLucky({107, 207}));
-      */
+    int[] ar3 = {7, 13, 17};
+    testcountLucky(ar3, 2);
   }
 }

@@ -13,6 +13,26 @@ public class TotalZLength{
   }
   return total;
   }
+
+  public static void testtotalZLength(ArrayList<String> nums, int expected){
+
+    int result = totalZLength(nums);
+    System.out.println("Input: " + nums.get(0));
+
+    for(int i = 1; i<nums.size(); i++)
+      System.out.println("," + nums.get(i));
+
+      System.out.println(" expected: " + expected + " result: " + result);
+
+      if(result == expected){
+        System.out.println("correct");
+
+      }
+      else{
+        System.out.println("wrong");
+      }
+  }
+
   public static void main(String[] args){
 
     ArrayList<String> arr1 = new ArrayList<String> ();

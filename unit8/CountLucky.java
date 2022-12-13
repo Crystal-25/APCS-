@@ -12,10 +12,30 @@ public class CountLucky{
         num = num + 1;
   }
     return num;
-}
+  }
+
+    public static void testCountLucky(ArrayList<Integer> nums, int expected){
+
+      int result = countLucky(nums);
+      System.out.println("Input: " + nums.get(0));
+      for(int i = 1; i < nums.size(); i++)
+        System.out.print(", " + nums.get(i));
+
+        System.out.println(" Expected: " + expected + " result: " + result);
+
+        if(result == expected){
+          System.out.println("yes");
+        }
+        else{
+          System.out.println("no");
+        }
+    }
+
     public static void main(String[] args){
 
       ArrayList<Integer> arr1 = new ArrayList<Integer>();
+
+    
       //add(value) adds the value to the end of the arraylist
       arr1.add(7);
       arr1.add(13);

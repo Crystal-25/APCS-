@@ -1,3 +1,4 @@
+import java.util.*;
 public class TransformingAList{
   static String reverse(String s){
     //create a variable
@@ -14,31 +15,49 @@ public class TransformingAList{
     //return reverse string
   }
 
-    static String[] reverseAll( String[] arrS){
+    static ArrayList<String> reverseAll(ArrayList<String> arrS){
 
-      String[] strArr = new String[ arrS.length]; //represents the whloe stirng
+      ArrayList<String> strArr = new ArrayList<String>(); //represents the whloe stirng
 
       //for loop
         //to go through every string in the array
         //for every string we go thorugh, add it to the reverse string array
-      for(int i = arrS.length - 1; i >= 0; i--){
-        strArr[i] = reverse( arrS[i] );
+      for(int i = arrS.size() - 1; i >= 0; i--){
+        strArr.add(reverse( arrS.get(i) ));
 
       }
 
       return strArr;
     }
     //return reverse string array
+  public static void testreverse(ArrayList<String> list, ArrayList<String> expected){
+      ArrayList<String> answer = expected;
+
+      System.out.print("Array list:" + list);
+
+      System.out.println("expected max value: " + expected + "actual max value: " + answer);
+
+      if(expected.equals(answer))
+        System.out.println("corect");
+      else
+        System.out.println("wrong");
+    }
 
   public static void main (String[] args){
+
     System.out.println(reverse("abcd"));
     System.out.println(reverse("1234"));
 
-    String[] as = {"abcd", "xyz"};
-    String[] r = reverseAll(as);
+    ArrayList<String> as = new ArrayList<String> ();
+      as.add("abcd");
+      as.add("xyz");
 
-    for(String s: r){
-      System.out.println(s);
+    ArrayList<String> r = new ArrayList<String> ();
+      r.add("dcba");
+      r.add("zyx");
+
+    testreverse(as, r);
+
+
     }
   }
-}

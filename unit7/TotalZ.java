@@ -11,12 +11,28 @@ public class TotalZ{
     }
   return total;
   }
+  public static void testcountZNames(String[] arrS, int expected){
+
+    int result = countZNames(arrS);
+    System.out.print("Input: " + arrS[0]);
+    for(int i = 1; i<arrS.length; i++)
+      System.out.print("," + arrS[i]);
+
+      System.out.println( " Expected " + expected + " result" + result);
+
+      if(result == expected){
+        System.out.println("correct");
+      }
+      else{
+        System.out.println("wrong");
+      }
+  }
   public static void main(String[] args){
 
-    String[] arr = {"Dr. Kessner", "Dr. Sands"};
-    System.out.println(countZNames(arr));
+    String[] s1 = {"Dr. Kessner", "Dr. Sands"};
+    testcountZNames(s1, 0);
 
-    String[] arr2 = {"Zorro", "zero", "zippy"};
-    System.out.println(countZNames(arr2));
+    String[] s2 = {"Zorro", "zero", "zippy"};
+    testcountZNames(s2, 14);
   }
 }

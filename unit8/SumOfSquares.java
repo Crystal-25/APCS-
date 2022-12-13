@@ -12,6 +12,24 @@ public class SumOfSquares {
   }
   return total;
 }
+
+public static void testsumOfSquares(ArrayList<Double> nums, double expected){
+
+  double result = sumOfSquares(nums);
+  System.out.println("Input: " + nums.get(0));
+  for(int i = 1; i<nums.size(); i++)
+    System.out.println("," + nums.get(i));
+
+    System.out.println(" expected: " + expected + " result: " + result);
+
+    if(result == expected){
+      System.out.println("correct");
+
+    }
+    else{
+      System.out.println("wrong");
+    }
+}
  public static void main(String[] args){
 
    ArrayList<Double> arr1 = new ArrayList<Double>();
