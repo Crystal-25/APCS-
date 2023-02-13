@@ -31,6 +31,7 @@ public class PersonStats{
       }
       return result;
     }
+
   public static void main(String[] args){
     ArrayList<Person> people = new ArrayList<Person>();
     Person p1 = new Person("Eloise", 3);

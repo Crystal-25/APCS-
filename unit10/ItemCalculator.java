@@ -1,15 +1,20 @@
 import java.util.*;
 public class ItemCalculator{
   public static void printAllItems(ArrayList<Item> aList){ //method
-    for(int i = 0; i < aList.size(); i++){
-      Item it = aList.get(i); //.get returns the value of the variable name
+
+    //for(int i = 0; i < aList.size(); i++){
+      for(Item i : aList){
+      System.out.println(i.getName() + " " + i.getPrice());
+   }
+ }
+
+      /*it = aList.get(i); //.get returns the value of the variable name
       String n = it.getName();
       //contains the obj name
       float p = it.getPrice();
       //contain obj price
-      System.out.println(n + " " + p);
-    }
-  }
+      System.out.println(n + " " + p); */
+
   public static void main(String[] args){ //testing purposes
       /*ArrayList<Item> itemList = new ArrayList<Item>();
       Item i1 = new Item("milk", 3.50f); //item 1
