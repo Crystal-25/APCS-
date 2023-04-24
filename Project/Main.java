@@ -39,20 +39,6 @@ public class Main extends PApplet{
   */
 }
 
-/*public boolean stop(Tetris block){
-
-  if(tetrises.get(tetrises.size() - 1).pos.x + 100 > block.pos.x
-  && tetrises.get(tetrises.size() - 1).pos.x < block.pos.x + 100
-  && tetrises.get(tetrises.size() - 1).pos.y + 100 > block.pos.y
-  && tetrises.get(tetrises.size() - 1).pos.y < block.pos.y + 100){
-
-    return true;
-  }
-
-  return false;
-
-}
-*/
   public void draw(){
 
     background(0);
@@ -60,7 +46,7 @@ public class Main extends PApplet{
 
     for(Tetris t: tetrises){
       t.display();
-      t.move();
+    //  t.move();
 
     /*  if(collision(t))
       {

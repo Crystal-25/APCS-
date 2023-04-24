@@ -36,22 +36,42 @@ public class Tetris{
 
   }
 
-  public void move(){
-    pos.y += 2;
-    if(pos.y>p.height - 200)
-      pos.y = p.height-200;
+  //public void move(){
+    //pos.y += 2;
+  // if(pos.y > p.height - 200)
+  //  pos.y = p.height - 200;
 
-  }
+  //}
 
   public boolean groundStop(){
 
-  if(pos.y + 50 > p.height - 200){
-      pos.y = p.height - 200;
+  if(diffshape.equals("square") && pos.y > p.height - 50){
+      pos.y = p.height - 50;
         sele = false;
         return true;
     }
+
+    if(diffshape.equals("line") && pos.y + 150 > p.height - 200){
+        pos.y = p.height;
+          sele = false;
+          return true;
+      }
+
+    if(diffshape.equals("twist") && pos.y > p.height - 200){
+          pos.y = p.height;
+            sele = false;
+            return true;
+        }
+
+    if(diffshape.equals("L") && pos.y > p.height - 250){
+            pos.y = p.height;
+              sele = false;
+              return true;
+      }
+
     return false;
   }
+
 
   public void display(){
     p.fill(255);
