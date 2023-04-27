@@ -1,3 +1,4 @@
+/*
 import processing.core.*;
 import java.util.Random;
 
@@ -10,6 +11,7 @@ public class Chatbot extends PApplet {
   private int textboxY;
   private int textboxWidth;
   private int textboxHeight;
+  private String aiResponse;
 
   public void settings() {
     size(400, 400);
@@ -26,19 +28,21 @@ public class Chatbot extends PApplet {
     textboxY = 320;
     textboxWidth = 360;
     textboxHeight = 40;
+    aiResponse = "";
   }
 
   public void draw() {
-    //String aiResponse = chatResponse.getResponse(userInput);
+
     background(255);
     fill(240);
     rect(textboxX, textboxY, textboxWidth, textboxHeight);
     fill(0);
     text("You: " + userInput, 20, 20);
-    //text("AI: " + aiResponse, 20, 60);
-    text("AI: " + chatbotResponse.getResponse(userInput) + (isTyping ? "|" : ""), 20, 60);
+    text("AI: " + chatbotResponse.getResponse(userInput)
+     + (isTyping ? "|" : ""), 20, 60);
+    System.out.print(chatbotResponse.getResponse(userInput));
     if(!isTyping){
-      text("AI: " + chatbotResponse.getResponse(userInput), 20, 60);
+      aiResponse = chatbotResponse.getResponse(userInput);
       //getResponse = chatbotResponse: user's argument (object)
       //(20, 20) = top left corner of the screen window
     }
@@ -54,10 +58,12 @@ public class Chatbot extends PApplet {
     else if (key == ENTER || key == RETURN) {
       userInput += "\n"; //new line
       isTyping = false;
-      String aiResponse = chatbotResponse.getResponse(userInput);
+      aiResponse = chatbotResponse.getResponse(userInput);
       //gets AI response
       userInput = ""; //clear user input
       isTyping = true; //Makes AI type
+      chatbotResponse.resetResponse();
+      System.out.println(userInput);
     }
     else if (key >= ' ' && key <= '~') {
       userInput += key;
@@ -69,7 +75,8 @@ public class Chatbot extends PApplet {
     if (mouseX >= textboxX && mouseX <= textboxX + textboxWidth
     && mouseY >= textboxY && mouseY <= textboxY + textboxHeight) {
       isTyping = true;
-    } else {
+    }
+    else{
       isTyping = false;
     }
   }
@@ -96,8 +103,10 @@ class ChatbotResponse {
     String response = "";
 
     if (!hasResponded) {
+      //System.out.println("Hello!");
       if (userInput.contains("hi") || userInput.contains("hello")) {
         response = greetings[random.nextInt(greetings.length)];
+        System.out.println(greetings[random.nextInt(greetings.length)]);
       } else if (userInput.contains("how") && userInput.contains("you")) {
         response = "I'm doing well, thank you for asking!";
       } else if (userInput.contains("what") && userInput.contains("name")) {
@@ -116,5 +125,80 @@ class ChatbotResponse {
 
   public void resetResponse() {
     hasResponded = false;
+
+}
+*/
+import processing.core.*;
+
+public class Chatbot extends PApplet {
+
+  private String[] greetings = {"Hello!", "Hi there!", "Hey!"};
+  private String[] questions = {
+  "How are you?", "What can I help you with?",
+  "What brings you here today?"};
+  private String[] goodbyes = {
+  "Goodbye!", "Bye!", "See you later!"};
+
+  private String userInput = "";
+  private String aiResponse = "";
+  private int textboxWidth;
+  private int textboxHeight;
+  private int textboxX;
+  private int textboxY;
+
+  public void settings() {
+    size(400, 400);
   }
+
+  public void setup() {
+    textAlign(LEFT, TOP);
+    textSize(18);
+    textboxX = 20;
+    textboxY = 320;
+    textboxWidth = 360;
+    textboxHeight = 40;
+  }
+
+  public void draw() {
+    background(255);
+    fill(240);
+    rect(textboxX, textboxY, textboxWidth, textboxHeight);
+    fill(0);
+    text("You: " + userInput, 20, 20);
+    text("Kim Kardashian: " + aiResponse, 20, 60);
+  }
+
+  public void keyPressed() {
+    if (keyCode == ENTER) {
+      aiResponse = getResponse(userInput);
+      userInput = "";
+    }
+    else if (keyCode == BACKSPACE && userInput.length() > 0) {
+      userInput = userInput.substring(0, userInput.length() - 1);
+    }
+    else if (keyCode >= ' ' && keyCode <= '~') {
+      userInput += key;
+    }
+  }
+
+  private String getResponse(String userInput) {
+    String response = "";
+    if (userInput.toLowerCase().contains("hi") || userInput.toLowerCase().contains("hello")) {
+      response = greetings[(int) random(greetings.length)];
+    } else if (userInput.toLowerCase().contains("how") && userInput.toLowerCase().contains("you")) {
+      response = "I'm doing well, thank you for asking!";
+    } else if (userInput.toLowerCase().contains("what") && userInput.toLowerCase().contains("name")) {
+      response = "My name is Chatbot, nice to meet you!";
+    } else if (userInput.toLowerCase().contains("bye")) {
+      response = goodbyes[(int) random(goodbyes.length)];
+    } else {
+      response = questions[(int) random(questions.length)];
+    }
+    return response;
+  }
+
+  public static void main(String[] args) {
+    PApplet.main("Chatbot");
+  }
+
 }
