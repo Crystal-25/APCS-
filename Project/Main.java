@@ -1,6 +1,7 @@
 import processing.core.*;
 import java.util.*;  //import it when you use an
 //arraylist or special tools
+//import Tetris;
 
 public class Main extends PApplet{
 
@@ -16,6 +17,7 @@ public class Main extends PApplet{
 
     tetrises = new ArrayList<Tetris>();
     createTetris();
+
   }
 
   public void createTetris(){
@@ -27,16 +29,10 @@ public class Main extends PApplet{
 
   public void drop()
   {
-    if(tetrises.get(tetrises.size() - 1).groundStop()){
+    if(tetrises.get(tetrises.size() - 1).groundStop(collisionL)){
       createTetris();
+      collisionL += tetrises.get(tetrises.size() - 1).getIncrement();
     }
-
-    /*for(int i = 0; i < tetrises.size(); i++){
-      if(stop(tetrises.get(i))){
-        createTetris();
-    }
-  }
-  */
 }
 
   public void draw(){
@@ -46,31 +42,9 @@ public class Main extends PApplet{
 
     for(Tetris t: tetrises){
       t.display();
-    //  t.move();
-
-    /*  if(collision(t))
-      {
-        drop();
-
-      }
-      */
     }
   }
 
-  public boolean collision(Tetris curr){
-
-    for(Tetris t: tetrises){
-
-      if(t.pos.x == curr.pos.x && t.pos.y > curr.pos.y){
-
-        createTetris();
-        return true;
-        //make curr stay
-      }
-    }
-
-    return false;
-  }
 
   public void keyPressed(){
 
@@ -91,7 +65,10 @@ public class Main extends PApplet{
       }
   }
 
-  public static void main(String[] args){
-    PApplet.main("Main");
-  }
+public static void main(String[] args){
+  PApplet.main("Main");
+}
+
+  public int collisionL = 0;
+
 }
